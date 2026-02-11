@@ -22,7 +22,7 @@ header-includes:
     \textbf{Kevin Luo} (yuchen.luo@mail.utoronto.ca) \\
     \textbf{Sinan Ma} (1@mail.utoronto.ca) \\
     \textbf{Qianying Shen} (2@mail.utoronto.ca) \\
-    \textbf{Zhengjia Li} (3@mail.utoronto.ca) \\
+    \textbf{Zhengjia Li} (zhengjia.li@mail.utoronto.ca) \\
     \textbf{Gino Li} (gino.li@mail.utoronto.ca) \\
     
     \vspace{1em}

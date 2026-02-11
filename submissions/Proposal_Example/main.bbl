@@ -1,0 +1,19 @@
+\begin{thebibliography}{2}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Voss(2013)]{voss2013introduction}
+J.~Voss.
+\newblock \emph{An introduction to statistical computing: a simulation-based approach}.
+\newblock John Wiley \& Sons, 2013.
+
+\bibitem[White(2015)]{white_capstone_template}
+J.~White.
+\newblock Undergraduate project capstone proposal template, 2015.
+\newblock URL \url{https://www.overleaf.com/latex/templates/undergraduate-project-capstone-proposal-template/rrhdkxngmwcn}.
+\newblock Licensed under Creative Commons CC BY 4.0.
+
+\end{thebibliography}

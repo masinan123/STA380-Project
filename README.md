@@ -1,1 +1,1 @@
-# STA380-Ptoject
+# STA380-Project

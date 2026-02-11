@@ -23,7 +23,7 @@ header-includes:
     \textbf{Sinan Ma} (1@mail.utoronto.ca) \\
     \textbf{Qianying Shen} (2@mail.utoronto.ca) \\
     \textbf{Zhengjia Li} (3@mail.utoronto.ca) \\
-    \textbf{Gino} (4@mail.utoronto.ca) \\
+    \textbf{Gino Li} (gino.li@mail.utoronto.ca) \\
     
     \vspace{1em}
     \large
@@ -80,6 +80,9 @@ Users will be able to modify the following:
 2.  Select the development groups to compare
 3.  Choose the year of analysis
 4.  Set the random seed to reproduce the test
+5.  Choose the number of permutations (B) used to generate the permutation distribution
+6.  Set the significance level ($\alpha$) used to determine rejection of the null hypothesis
+7.  Download the permutation test results as a .csv file, including the observed test statistic, p-value, and the permutation   distribution
 
 
 # Generative AI Usage Declaration

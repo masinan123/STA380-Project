@@ -37,13 +37,19 @@ I used an Undergraduate Project Capstone Proposal Template to write this example
 
 # Project Topic
 
-*Permutation Test between Developmental Groups from the World Population Prospects (2024)*
+**Permutation Test between Developmental Groups from the World Population Prospects (2024)**
 
-Our group proposes to perform a permutation test to determine if there is a statistically significant difference in key demographic indicators (such as Life Expectancy, Birth Rate, or Mortality Rate) between different developmental groups (e.g., "More Developed Regions" vs. "Less Developed Regions").
+Our group proposes to perform a permutation test to determine if there is a statistically significant difference in chosen demographic indicators (such as Life Expectancy, Birth Rate, or Mortality Rate) between different developmental groups (e.g., "More Developed Regions" vs. "Less Developed Regions").
 
 # Simulation vs. Dataset
 
-The results will be from using pure simulations.
+This project will use a **dataset** sourced from the United Nations [@un_wpp_2024].
+
+* **Source:** United Nations, Department of Economic and Social Affairs, Population Division.
+* **Dataset Name:** World Population Prospects 2024.
+* **Link:** [https://population.un.org/wpp/](https://population.un.org/wpp/downloads?folder=Standard%20Projections&group=Most%20used)
+
+The processed `.csv` file containing the relevant indicators and developmental groups has been provided within the Proposal sub folder.
 
 # Project Details
 

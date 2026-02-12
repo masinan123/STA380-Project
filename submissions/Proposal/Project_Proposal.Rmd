@@ -15,7 +15,7 @@ header-includes:
     \vspace*{1cm}
     \LARGE \textbf{STA380 Group Project Proposal} \\
     \vspace{1em}
-    \Large Simulating the Bivariate Gaussian Distribution Using MCMC Methods \\
+    \Large Permutation Test on World Population Development Groups (2023) \\
     \vspace{1em}
     
     \normalsize
@@ -39,7 +39,7 @@ I used an Undergraduate Project Capstone Proposal Template to write this example
 
 **Permutation Test between Developmental Groups from the World Population Prospects (2024)**
 
-Our group proposes to perform a permutation test to determine if there is a statistically significant difference in chosen demographic indicators (such as Life Expectancy, Birth Rate, or Mortality Rate) between different developmental groups (e.g., "More Developed Regions" vs. "Less Developed Regions") using a dataset containing data.
+Our group proposes to perform a permutation test to determine if there is a statistically significant difference in chosen demographic indicators (such as Life Expectancy, Birth Rate, or Mortality Rate) between different developmental groups (e.g., Developing vs. Developed regions^[Countries were classified into 'Developed' and 'Developing' groups according to the United Nations Statistics Division M49 Standard. 'Developed' includes Europe, Northern America, Australia, New Zealand, and Japan; all other regions are classified as 'Developing'.]).
 
 # Simulation vs. Dataset
 
@@ -49,11 +49,13 @@ This project will use a **dataset** sourced from the United Nations [@un_wpp_202
 * **Dataset Name:** World Population Prospects 2024.
 * **Link:** [https://population.un.org/wpp/](https://population.un.org/wpp/downloads?folder=Standard%20Projections&group=Most%20used)
 
-We will use the **"Estimates" worksheet** from the WPP 2024 dataset, which contains reconstructed historical data from past censuses and surveys, ensuring our permutation test is performed on facts rather than projections of the future (such as the "Medium Variant", "Low Variant", and "High Variant" sheets).
+We will use the "Estimates" worksheet from the WPP 2024 dataset, which contains reconstructed historical data from past censuses and surveys, ensuring our permutation test is performed on facts rather than projections of the future (such as the "Medium Variant", "Low Variant", and "High Variant" sheets).
 
-To capture the current state of global development, we will filter the dataset for **Year = 2023**, which represents the most recent year of historical data.
+To capture the current state of global development, we will filter the dataset for the year 2023, which represents the most recent year of estimated historical data.
 
-The processed `.csv` file containing the relevant indicators and developmental groups has been provided within the Proposal sub folder.
+The processed `Clean_data.csv` file containing the relevant indicators and developmental groups has been provided within the Proposal sub folder.
+
+
 
 # Project Details
 
@@ -88,4 +90,4 @@ Users will be able to modify the following:
 
 Generative AI was used in this proposal to convert the provided LaTex proposal example to a R Markdown format.
 
-\nocite{r_language, shiny_package} 
+\nocite{r_language, un_m49_methodology, un_wpp_2024, shiny_package} 

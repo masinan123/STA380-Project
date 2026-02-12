@@ -91,15 +91,10 @@ Users will be able to modify the following:
 7.  Download the permutation test results as a .csv file, including the observed test statistic, p-value, and the permutation   distribution
 
 
-# References
-Basten, S. (2013). Re-Examining the fertility assumptions for Pacific Asia in the UN's 2010 World Population Prospects. University of Oxford Department of Social Policy and Intervention, Barnett Papers in Social Research, 1.
-
-O’Sullivan, J. N. (2023). Demographic Delusions: World Population Growth Is Exceeding Most Projections and Jeopardising Scenarios for Sustainable Futures. World, 4(3), 545-568. https://doi.org/10.3390/world4030034
-
 
 
 # Generative AI Usage Declaration
 
 Generative AI was used in this proposal to convert the provided LaTex proposal example to a R Markdown format.
 
-\nocite{r_language, un_m49_methodology, un_wpp_2024, shiny_package} 
+\nocite{r_language, un_m49_methodology, un_wpp_2024, shiny_package, basten2013re, world4030034} 

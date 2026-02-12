@@ -80,11 +80,10 @@ Users will be able to modify the following:
 
 1.  Select the demographic indicator
 2.  Select the development groups to compare
-3.  Choose the year of analysis
-4.  Set the random seed to reproduce the test
-5.  Choose the number of permutations (B) used to generate the permutation distribution
-6.  Set the significance level ($\alpha$) used to determine rejection of the null hypothesis
-7.  Download the permutation test results as a .csv file, including the observed test statistic, p-value, and the permutation distribution
+3.  Set the random seed to reproduce the test
+4.  Choose the number of permutations (B) used to generate the permutation distribution
+5.  Set the significance level ($\alpha$) used to determine rejection of the null hypothesis
+6.  Download the permutation test results as a .csv file, including the observed test statistic, p-value, and the permutation distribution
 
 # Generative AI Usage Declaration
 

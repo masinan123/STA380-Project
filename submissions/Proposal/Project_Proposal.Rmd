@@ -20,7 +20,7 @@ header-includes:
     
     \normalsize
     \textbf{Kevin Luo} (yuchen.luo@mail.utoronto.ca) \\
-    \textbf{Sinan Ma} (1@mail.utoronto.ca) \\
+    \textbf{Sinan Ma} (sinan.ma@utoronto.ca) \\
     \textbf{Qianying Shen} (2@mail.utoronto.ca) \\
     \textbf{Zhengjia Li} (zhengjia.li@mail.utoronto.ca) \\
     \textbf{Gino Li} (gino.li@mail.utoronto.ca) \\
@@ -39,7 +39,7 @@ I used an Undergraduate Project Capstone Proposal Template to write this example
 
 **Permutation Test between Developmental Groups from the World Population Prospects (2024)**
 
-Our group proposes to perform a permutation test to determine if there is a statistically significant difference in chosen demographic indicators (such as Life Expectancy, Birth Rate, or Mortality Rate) between different developmental groups (e.g., Developing vs. Developed regions^[Countries were classified into 'Developed' and 'Developing' groups according to the United Nations Statistics Division M49 Standard. 'Developed' includes Europe, Northern America, Australia, New Zealand, and Japan; all other regions are classified as 'Developing'.]).
+Our group proposes to perform a permutation test to determine if there is a statistically significant difference in chosen demographic indicators (such as Life Expectancy, Birth Rate, or Mortality Rate) across countries, comparing countries classified into different developmental groups (e.g., Developing vs. Developed regions^[Countries were classified into 'Developed' and 'Developing' groups according to the United Nations Statistics Division M49 Standard. 'Developed' includes Europe, Northern America, Australia, New Zealand, and Japan; all other regions are classified as 'Developing'.]).
 
 # Simulation vs. Dataset
 
@@ -53,14 +53,13 @@ We will use the "Estimates" worksheet from the WPP 2024 dataset, which contains 
 
 To capture the current state of global development, we will filter the dataset for the year 2023, which represents the most recent year of estimated historical data.
 
-The processed `Clean_data.csv` file containing the relevant indicators and developmental groups has been provided within the Proposal sub folder.
-
+A cleaned country-level dataset derived from the WPP 2024 Estimates file, containing the selected indicators and development group labels, is provided in the Proposal subfolder.
 
 
 
 # Project Details
 
-We will be using permutation test to examine whether there are statistically significant differences in selected demographic indicators between two groups:
+We will use a permutation test to examine whether there are statistically significant differences in selected demographic indicators across countries, comparing countries classified into two development groups:
 
 * Group1: More developed regions
 * Group2: Less developed regions
@@ -73,9 +72,9 @@ we focus on the indicator:
 
 The following outputs will be provided:
 
-* A histogram showing the density of the birth rate in different regions
-* Visualization showing the observed test statistic and the corresponding p-value
-* Summary statistic for each group (mean, sample size and standard deviation)
+* A histogram showing the distribution of the selected indicator across countries, stratified by development group  
+* A visualization highlighting the observed test statistic and the corresponding permutation-based p-value  
+* Summary statistics for each group, including the mean, sample size, and standard deviation 
 
 
 # User Inputs (Shiny Components)
@@ -96,5 +95,8 @@ Users will be able to modify the following:
 # Generative AI Usage Declaration
 
 Generative AI was used in this proposal to convert the provided LaTex proposal example to a R Markdown format.
+
+In addition, generative AI was used to assist with coding logic for classifying countries into more developed and less developed groups based on the United Nations Statistics Division M49 standard.
+
 
 \nocite{r_language, un_m49_methodology, un_wpp_2024, shiny_package, basten2013re, world4030034} 

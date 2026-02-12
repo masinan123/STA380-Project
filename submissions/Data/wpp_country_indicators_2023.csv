@@ -1,0 +1,238 @@
+country,year,birth_rate,life_exp,mortality,dev_group
+Burundi,2023,33.667,63.651,6.718,Less developed
+Comoros,2023,28.653,66.777,7.196,Less developed
+Djibouti,2023,20.769,65.987,7.456,Less developed
+Eritrea,2023,28.544,68.624,6.047,Less developed
+Ethiopia,2023,31.903,67.315,5.96,Less developed
+Kenya,2023,27.106,63.646,7.211,Less developed
+Madagascar,2023,32.095,63.632,7.528,Less developed
+Malawi,2023,31.381,67.353,5.363,Less developed
+Mauritius,2023,9.268,74.926,8.734,Less developed
+Mayotte,2023,35.396,76.054,2.703,Less developed
+Mozambique,2023,37.486,63.611,7.002,Less developed
+Réunion,2023,13.719,83.547,5.482,Less developed
+Rwanda,2023,28.348,67.785,5.935,Less developed
+Seychelles,2023,13.629,72.862,8.217,Less developed
+Somalia,2023,42.964,58.816,9.835,Less developed
+South Sudan,2023,28.59,57.617,9.609,Less developed
+Uganda,2023,35.201,68.252,4.842,Less developed
+United Republic of Tanzania,2023,35.222,66.995,5.791,Less developed
+Zambia,2023,33.081,66.349,5.207,Less developed
+Zimbabwe,2023,30.41,62.775,7.614,Less developed
+Angola,2023,37.588,64.617,6.925,Less developed
+Cameroon,2023,33.743,63.7,7.151,Less developed
+Central African Republic,2023,46.358,57.408,9.419,Less developed
+Chad,2023,42.396,55.069,11.032,Less developed
+Congo,2023,30.627,65.772,6.288,Less developed
+Democratic Republic of the Congo,2023,41.305,61.895,8.525,Less developed
+Equatorial Guinea,2023,29.604,63.707,7.878,Less developed
+Gabon,2023,27.666,68.337,6.269,Less developed
+Sao Tome and Principe,2023,28.185,69.718,5.572,Less developed
+Algeria,2023,19.625,76.261,4.641,Less developed
+Egypt,2023,21.004,71.633,5.461,Less developed
+Libya,2023,17.024,69.339,6.654,Less developed
+Morocco,2023,16.701,75.313,5.638,Less developed
+Sudan,2023,33.612,66.331,6.404,Less developed
+Tunisia,2023,13.748,76.508,6.071,Less developed
+Western Sahara,2023,15.503,71.385,6.344,Less developed
+Botswana,2023,24.713,69.163,5.724,Less developed
+Eswatini,2023,24.073,64.123,7.7,Less developed
+Lesotho,2023,24.109,57.375,10.648,Less developed
+Namibia,2023,25.89,67.385,6.169,Less developed
+South Africa,2023,18.775,66.139,9.239,Less developed
+Benin,2023,33.879,60.774,8.797,Less developed
+Burkina Faso,2023,31.643,61.092,7.964,Less developed
+Cabo Verde,2023,12.33,76.059,5.059,Less developed
+Côte d'Ivoire,2023,31.99,61.944,7.66,Less developed
+Gambia,2023,30.429,65.86,6.292,Less developed
+Ghana,2023,26.31,65.498,7.04,Less developed
+Guinea,2023,33.848,60.74,9.125,Less developed
+Guinea-Bissau,2023,30.037,64.085,7.05,Less developed
+Liberia,2023,30.96,62.163,8.071,Less developed
+Mali,2023,40.029,60.439,8.627,Less developed
+Mauritania,2023,34.423,68.484,5.52,Less developed
+Niger,2023,41.892,61.183,8.859,Less developed
+Nigeria,2023,32.954,54.462,11.74,Less developed
+Saint Helena,2023,7.344,76.787,16.839,Less developed
+Senegal,2023,29.423,68.683,5.581,Less developed
+Sierra Leone,2023,30.601,61.786,8.287,Less developed
+Togo,2023,31.142,62.739,7.702,Less developed
+Kazakhstan,2023,20.138,74.402,6.709,Less developed
+Kyrgyzstan,2023,21.313,71.677,5.966,Less developed
+Tajikistan,2023,26.124,71.79,4.581,Less developed
+Turkmenistan,2023,21.74,70.073,5.781,Less developed
+Uzbekistan,2023,26.465,72.388,6.206,Less developed
+China,2023,6.256,77.953,8.213,Less developed
+"China, Hong Kong SAR",2023,5.548,85.511,7.684,Less developed
+"China, Macao SAR",2023,6.325,83.075,4.795,Less developed
+"China, Taiwan Province of China",2023,5.678,80.559,8.806,Less developed
+Dem. People's Republic of Korea,2023,12.947,73.642,9.684,Less developed
+Japan,2023,6.029,84.712,12.257,More developed
+Mongolia,2023,18.945,71.734,5.927,Less developed
+Republic of Korea,2023,4.568,84.329,6.677,Less developed
+Afghanistan,2023,35.437,66.035,5.797,Less developed
+Bangladesh,2023,20.353,74.672,5.01,Less developed
+Bhutan,2023,12.663,72.975,6.11,Less developed
+India,2023,16.146,72.003,6.611,Less developed
+Iran (Islamic Republic of),2023,12.951,77.654,4.672,Less developed
+Maldives,2023,11.018,81.041,2.338,Less developed
+Nepal,2023,19.34,70.354,6.932,Less developed
+Pakistan,2023,27.806,67.649,6.466,Less developed
+Sri Lanka,2023,14.109,77.483,7.072,Less developed
+Brunei Darussalam,2023,13.59,75.327,5.23,Less developed
+Cambodia,2023,20.752,70.668,6.39,Less developed
+Indonesia,2023,15.941,71.146,7.531,Less developed
+Lao People's Democratic Republic,2023,21.271,68.964,6.221,Less developed
+Malaysia,2023,12.412,76.657,5.158,Less developed
+Myanmar,2023,16.696,66.889,9.153,Less developed
+Philippines,2023,16.019,69.833,6.236,Less developed
+Singapore,2023,8.2,83.736,4.79,Less developed
+Thailand,2023,8.245,76.412,8.888,Less developed
+Timor-Leste,2023,22.077,67.689,7.271,Less developed
+Viet Nam,2023,13.831,74.588,6.577,Less developed
+Armenia,2023,11.778,75.683,9.37,Less developed
+Azerbaijan,2023,12.128,74.429,6.575,Less developed
+Bahrain,2023,12.46,81.284,2.089,Less developed
+Cyprus,2023,10.799,81.648,7.063,Less developed
+Georgia,2023,11.494,74.496,11.839,Less developed
+Iraq,2023,25.728,72.324,4.132,Less developed
+Israel,2023,18.616,82.408,5.542,Less developed
+Jordan,2023,20.611,77.814,3.049,Less developed
+Kuwait,2023,10.197,80.405,1.782,Less developed
+Lebanon,2023,16.144,77.817,5.962,Less developed
+Oman,2023,16.847,80.031,1.901,Less developed
+Qatar,2023,9.908,82.368,0.93,Less developed
+Saudi Arabia,2023,16.415,78.732,2.34,Less developed
+State of Palestine,2023,27.062,65.17,7.198,Less developed
+Syrian Arab Republic,2023,22.107,72.12,5.039,Less developed
+Türkiye,2023,12.284,77.156,6.321,Less developed
+United Arab Emirates,2023,9.774,82.909,0.932,Less developed
+Yemen,2023,35.209,69.295,4.792,Less developed
+Belarus,2023,7.136,74.434,13.338,More developed
+Bulgaria,2023,9.218,75.636,15.153,More developed
+Czechia,2023,8.496,79.834,10.502,More developed
+Hungary,2023,8.814,77.024,13.221,More developed
+Poland,2023,8.202,78.633,10.637,More developed
+Republic of Moldova,2023,10.755,71.198,13.606,More developed
+Romania,2023,9.604,75.938,13.449,More developed
+Russian Federation,2023,8.919,73.154,12.341,More developed
+Slovakia,2023,9.473,78.341,9.816,More developed
+Ukraine,2023,5.625,73.422,13.13,More developed
+Denmark,2023,9.719,81.933,9.629,More developed
+Estonia,2023,8.072,79.153,12.21,More developed
+Faroe Islands,2023,12.609,80.179,10.306,More developed
+Finland,2023,7.776,81.91,10.709,More developed
+Guernsey,2023,8.138,83.274,9.302,More developed
+Iceland,2023,11.215,82.691,6.739,More developed
+Ireland,2023,10.25,82.412,6.841,More developed
+Isle of Man,2023,8.34,80.999,10.476,More developed
+Jersey,2023,8.232,79.707,11.09,More developed
+Latvia,2023,7.57,76.19,14.67,More developed
+Lithuania,2023,7.51,76.025,14.344,More developed
+Norway,2023,9.339,83.308,7.998,More developed
+Sweden,2023,9.28,83.262,8.903,More developed
+United Kingdom,2023,10.023,81.302,9.518,More developed
+Albania,2023,10.244,79.602,8.332,More developed
+Andorra,2023,6.859,84.041,6.076,More developed
+Bosnia and Herzegovina,2023,7.714,77.85,13.457,More developed
+Croatia,2023,8.071,78.58,14.124,More developed
+Gibraltar,2023,12.07,83.553,6.51,More developed
+Greece,2023,7.191,81.857,12.401,More developed
+Holy See,2023,4.211,82.985,25.58,More developed
+Italy,2023,6.464,83.716,11.15,More developed
+Kosovo (under UNSC res. 1244),2023,12.067,78.033,5.871,More developed
+Malta,2023,7.904,83.299,7.371,More developed
+Montenegro,2023,11.019,77.087,11.378,More developed
+North Macedonia,2023,9.214,77.395,10.844,More developed
+Portugal,2023,8.307,82.36,11.113,More developed
+San Marino,2023,5.939,85.706,8.012,More developed
+Serbia,2023,8.835,76.769,13.868,More developed
+Slovenia,2023,8.451,81.603,10.188,More developed
+Spain,2023,7.03,83.67,9.339,More developed
+Austria,2023,8.439,81.956,10.21,More developed
+Belgium,2023,8.682,82.115,9.715,More developed
+France,2023,9.616,83.325,9.273,More developed
+Germany,2023,8.507,81.378,12.231,More developed
+Liechtenstein,2023,9.367,83.63,7.58,More developed
+Luxembourg,2023,10.444,82.229,6.98,More developed
+Monaco,2023,9.441,86.372,20.971,More developed
+Netherlands,2023,9.277,82.158,9.194,More developed
+Switzerland,2023,9.436,83.954,8.318,More developed
+Anguilla,2023,9.028,79.311,6.685,Less developed
+Antigua and Barbuda,2023,11.848,77.598,6.893,Less developed
+Aruba,2023,9.454,76.353,9.576,Less developed
+Bahamas,2023,10.852,74.552,8.713,Less developed
+Barbados,2023,11.173,76.178,10.613,Less developed
+"Bonaire, Sint Eustatius and Saba",2023,9.362,77.436,8.629,Less developed
+British Virgin Islands,2023,8.332,77.276,5.972,Less developed
+Cayman Islands,2023,11.838,80.358,4.801,Less developed
+Cuba,2023,8.706,78.085,10.147,Less developed
+Curaçao,2023,7.519,76.8,9.942,Less developed
+Dominica,2023,11.09,71.132,12.763,Less developed
+Dominican Republic,2023,17.931,73.72,6.25,Less developed
+Grenada,2023,11.711,75.205,8.859,Less developed
+Guadeloupe,2023,11.242,82.05,9.455,Less developed
+Haiti,2023,22.2,64.936,7.817,Less developed
+Jamaica,2023,11.623,71.479,8.076,Less developed
+Martinique,2023,10.774,82.565,10.123,Less developed
+Montserrat,2023,8.933,76.186,13.685,Less developed
+Puerto Rico,2023,5.815,81.69,10.692,Less developed
+Saint Barthélemy,2023,4.817,84.29,6.356,Less developed
+Saint Kitts and Nevis,2023,11.745,72.145,9.963,Less developed
+Saint Lucia,2023,11.262,72.697,8.614,Less developed
+Saint Martin (French part),2023,17.069,80.224,9.282,Less developed
+Saint Vincent and the Grenadines,2023,12.158,71.23,11.499,Less developed
+Sint Maarten (Dutch part),2023,9.126,76.371,8.126,Less developed
+Trinidad and Tobago,2023,10.708,73.49,8.368,Less developed
+Turks and Caicos Islands,2023,10.738,78.008,7.401,Less developed
+United States Virgin Islands,2023,11.189,75.472,15.411,Less developed
+Belize,2023,18.025,73.566,4.925,Less developed
+Costa Rica,2023,10.179,80.799,5.457,Less developed
+El Salvador,2023,15.758,72.099,7.519,Less developed
+Guatemala,2023,20.809,72.602,4.829,Less developed
+Honduras,2023,21.963,72.884,4.478,Less developed
+Mexico,2023,15.706,75.069,6.161,Less developed
+Nicaragua,2023,19.376,74.947,4.586,Less developed
+Panama,2023,16.029,79.594,4.771,Less developed
+Argentina,2023,11.064,77.395,7.668,Less developed
+Bolivia (Plurinational State of),2023,21.247,68.581,7.172,Less developed
+Brazil,2023,12.322,75.848,7.077,Less developed
+Chile,2023,8.963,81.167,6.495,Less developed
+Colombia,2023,13.475,77.725,5.398,Less developed
+Ecuador,2023,15.033,77.392,5.128,Less developed
+Falkland Islands (Malvinas),2023,11.31,79.213,7.847,Less developed
+French Guiana,2023,25.401,76.978,4.949,Less developed
+Guyana,2023,20.287,70.18,7.32,Less developed
+Paraguay,2023,19.985,73.844,5.703,Less developed
+Peru,2023,15.944,77.74,5.491,Less developed
+Suriname,2023,17.298,73.631,6.649,Less developed
+Uruguay,2023,9.871,78.138,9.783,Less developed
+Venezuela (Bolivarian Republic of),2023,15.087,72.514,7.56,Less developed
+Bermuda,2023,8.046,82.309,8.858,More developed
+Canada,2023,9.078,82.63,7.935,More developed
+Greenland,2023,14.11,70.055,9.854,More developed
+Saint Pierre and Miquelon,2023,5.23,76.758,14.39,More developed
+United States of America,2023,10.648,79.304,8.663,More developed
+Australia,2023,11.506,83.923,6.953,Less developed
+New Zealand,2023,11.451,82.088,7.285,Less developed
+Fiji,2023,17.996,67.316,9.255,Less developed
+New Caledonia,2023,14.262,78.766,6.271,Less developed
+Papua New Guinea,2023,24.576,66.134,6.516,Less developed
+Solomon Islands,2023,26.935,70.528,5.141,Less developed
+Vanuatu,2023,28.05,71.477,5.083,Less developed
+Guam,2023,17.662,77.209,6.868,Less developed
+Kiribati,2023,25.813,66.473,7.046,Less developed
+Marshall Islands,2023,21.137,66.945,6.968,Less developed
+Micronesia (Fed. States of),2023,22.299,67.198,7.64,Less developed
+Nauru,2023,25.505,62.109,7.519,Less developed
+Northern Mariana Islands,2023,12.918,78.808,4.704,Less developed
+Palau,2023,10.897,69.269,11.495,Less developed
+American Samoa,2023,15.388,72.852,7.021,Less developed
+Cook Islands,2023,12.482,75.282,9.268,Less developed
+French Polynesia,2023,10.907,84.07,3.649,Less developed
+Niue,2023,13.873,69.978,14.721,Less developed
+Samoa,2023,25.401,71.698,6.157,Less developed
+Tokelau,2023,19.564,77.051,5.695,Less developed
+Tonga,2023,23.117,72.895,6.442,Less developed
+Tuvalu,2023,23.075,67.105,9.138,Less developed
+Wallis and Futuna Islands,2023,8.579,78.629,7.779,Less developed

@@ -21,7 +21,7 @@ header-includes:
     \normalsize
     \textbf{Kevin Luo} (yuchen.luo@mail.utoronto.ca) \\
     \textbf{Sinan Ma} (sinan.ma@utoronto.ca) \\
-    \textbf{Qianying Shen} (2@mail.utoronto.ca) \\
+    \textbf{Qianying Shen} (qianying.shen@mail.utoronto.ca) \\
     \textbf{Zhengjia Li} (zhengjia.li@mail.utoronto.ca) \\
     \textbf{Gino Li} (gino.li@mail.utoronto.ca) \\
     
@@ -33,21 +33,21 @@ header-includes:
 
 This proposal outlines our project, including the project topic, dataset, statistical method and planned output of our shiny application.
 
-I used an Undergraduate Project Capstone Proposal Template to write this example 
-
 # Project Topic
 
 **Permutation Test between Developmental Groups from the World Population Prospects (2024)**
 
-Our group proposes to perform a permutation test to determine if there is a statistically significant difference in chosen demographic indicators (such as Life Expectancy, Birth Rate, or Mortality Rate) across countries, comparing countries classified into different developmental groups (e.g., Developing vs. Developed regions^[Countries were classified into 'Developed' and 'Developing' groups according to the United Nations Statistics Division M49 Standard. 'Developed' includes Europe, Northern America, Australia, New Zealand, and Japan; all other regions are classified as 'Developing'.]).
+Our group proposes to perform a permutation test to determine if there is a statistically significant difference in chosen demographic indicators (such as Life Expectancy, Birth Rate, or Mortality Rate) across countries, comparing countries classified into different developmental groups (e.g., Developing vs. Developed regions[^1]).
+
+[^1]: Countries were classified into 'Developed' and 'Developing' groups according to the United Nations Statistics Division M49 Standard. 'Developed' includes Europe, Northern America, Australia, New Zealand, and Japan; all other regions are classified as 'Developing'.
 
 # Simulation vs. Dataset
 
 This project will use a **dataset** sourced from the United Nations [@un_wpp_2024].
 
-* **Source:** United Nations, Department of Economic and Social Affairs, Population Division.
-* **Dataset Name:** World Population Prospects 2024.
-* **Link:** [https://population.un.org/wpp/](https://population.un.org/wpp/downloads?folder=Standard%20Projections&group=Most%20used)
+-   **Source:** United Nations, Department of Economic and Social Affairs, Population Division.
+-   **Dataset Name:** World Population Prospects 2024.
+-   **Link:** [https://population.un.org/wpp/](https://population.un.org/wpp/downloads?folder=Standard%20Projections&group=Most%20used)
 
 We will use the "Estimates" worksheet from the WPP 2024 dataset, which contains reconstructed historical data from past censuses and surveys, ensuring our permutation test is performed on facts rather than projections of the future (such as the "Medium Variant", "Low Variant", and "High Variant" sheets).
 
@@ -55,27 +55,24 @@ To capture the current state of global development, we will filter the dataset f
 
 A cleaned country-level dataset derived from the WPP 2024 Estimates file, containing the selected indicators and development group labels, is provided in the Proposal subfolder.
 
-
-
 # Project Details
 
 We will use a permutation test to examine whether there are statistically significant differences in selected demographic indicators across countries, comparing countries classified into two development groups:
 
-* Group1: More developed regions
-* Group2: Less developed regions
+-   Group1: More developed regions
+-   Group2: Less developed regions
 
 we focus on the indicator:
 
-* Birth rate 
-* Life expectancy 
-* Mortality rate 
+-   Birth rate
+-   Life expectancy
+-   Mortality rate
 
 The following outputs will be provided:
 
-* A histogram showing the distribution of the selected indicator across countries, stratified by development group  
-* A visualization highlighting the observed test statistic and the corresponding permutation-based p-value  
-* Summary statistics for each group, including the mean, sample size, and standard deviation 
-
+-   A histogram showing the distribution of the selected indicator across countries, stratified by development group\
+-   A visualization highlighting the observed test statistic and the corresponding permutation-based p-value\
+-   Summary statistics for each group, including the mean, sample size, and standard deviation
 
 # User Inputs (Shiny Components)
 
@@ -87,10 +84,7 @@ Users will be able to modify the following:
 4.  Set the random seed to reproduce the test
 5.  Choose the number of permutations (B) used to generate the permutation distribution
 6.  Set the significance level ($\alpha$) used to determine rejection of the null hypothesis
-7.  Download the permutation test results as a .csv file, including the observed test statistic, p-value, and the permutation   distribution
-
-
-
+7.  Download the permutation test results as a .csv file, including the observed test statistic, p-value, and the permutation distribution
 
 # Generative AI Usage Declaration
 
@@ -98,5 +92,4 @@ Generative AI was used in this proposal to convert the provided LaTex proposal e
 
 In addition, generative AI was used to assist with coding logic for classifying countries into more developed and less developed groups based on the United Nations Statistics Division M49 standard.
 
-
-\nocite{r_language, un_m49_methodology, un_wpp_2024, shiny_package, basten2013re, world4030034} 
+\nocite{r_language, un_m49_methodology, un_wpp_2024, shiny_package, basten2013re, world4030034}

@@ -1,0 +1,124 @@
+---
+title: "Permutation test vignette: WPP 2024 development groups"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Permutation test vignette: WPP 2024 development groups}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+bibliography: bibliography.bib
+nocite: "@*"
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+knitr::opts_chunk$set(fig.width=7, fig.height=6) 
+```
+
+```{r setup}
+library(dplyr)
+library(readr)
+library(testthat)
+```
+
+This vignette serves as an example of how to use the implemented functions to perform a two-group permutation test for comparing demographic indicators across development groups using country-level data.
+
+Specifically, the following examples demonstrate:
+
+-   two-group permutation test based on the difference in means
+    `perm_test_two_group()`,
+
+-   computation of permutation-based p-values
+    `perm_p_value()`, and
+
+-   visualization of permutation distributions with the observed statistic
+    `plot_perm_dist()`.
+
+In particular, the examples focus on country-level estimates from the World Population Prospects 2024 dataset and illustrate how permutation-based inference can be used to assess whether observed differences between development groups are statistically significant.
+
+# Loading the Functions
+
+```{r}
+source("scripts/data_preparation.R")
+source("scripts/permutation_functions.R")
+source("scripts/plot_perm_dist.R")
+```
+
+
+# Loading the Cleaned Dataset
+
+We use the cleaned country-level dataset derived from the World Population Prospects 2024 Estimates data.
+
+```{r}
+wpp_path <- "submissions/Data/wpp_country_indicators_2023.csv"
+wpp <- readr::read_csv(wpp_path, show_col_types = FALSE)
+
+dplyr::glimpse(wpp)
+```
+
+# Preparing Data for a Selected Indicator
+
+In this vignette we demonstrate the workflow using one indicator (birth rate). The same code applies to life expectancy or mortality rate by changing `indicator_col`.
+
+```{r}
+indicator_col <- birth_rate
+group_col <- dev_group
+
+test_df <- perm_data_extract(wpp, {{ indicator_col }}, {{ group_col }})
+
+dplyr::count(test_df, group)
+summary(test_df$outcome)
+```
+
+# Running the Permutation Test
+
+We run a two-sided permutation test using the difference in means (More developed - Less developed) as the test statistic.
+
+```{r}
+res <- perm_test_two_group(
+  df = test_df,
+  B = 2000,
+  seed = 1,
+  alternative = "two.sided"
+)
+
+res$observed
+res$p_value
+```
+
+# Visualizing the Permutation Distribution
+
+We plot the permutation distribution and highlight the observed test statistic with a vertical line.
+
+```{r}
+plot_perm_dist(res, bins = 40)
+```
+
+
+# Inspecting Outcome Distributions by Group
+
+```{r}
+par(mfrow = c(1, 2))
+
+hist(
+  test_df$outcome[test_df$group == "More developed"],
+  main = "More developed: outcome",
+  xlab = "Outcome",
+  breaks = 30
+)
+
+hist(
+  test_df$outcome[test_df$group == "Less developed"],
+  main = "Less developed: outcome",
+  xlab = "Outcome",
+  breaks = 30
+)
+
+par(mfrow = c(1, 1))
+```
+
+# Bibliography
+
+Note: you should have more citations than me; I purposely excluded ones that you should also use to prevent you from copying and pasting my work.

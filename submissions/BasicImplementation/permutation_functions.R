@@ -117,3 +117,12 @@ perm_test_wrapper <- function(df, outcome_col, group_col,
   test_df <- perm_data_extract(df, {{ outcome_col }}, {{ group_col }})
   perm_test_two_group(test_df, B = B, seed = seed, alternative = alternative)
 }
+
+
+# AI usage:
+# Generative AI (ChatGPT) was used to clarify:
+# - roxygen documentation formatting
+# - tidy evaluation syntax using {{ }} in wrapper functions
+#
+# All statistical logic and implementation decisions were reviewed and
+# adapted by the author.

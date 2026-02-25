@@ -73,6 +73,26 @@ summary(test_df$outcome)
 
 We run a two-sided permutation test using the difference in means (More developed - Less developed) as the test statistic.
 
+## Hypotheses
+
+Let $\mu_M$ be the mean outcome for **More developed** and $\mu_L$ for **Less developed**.
+
+$$
+H_0: \mu_M = \mu_L
+$$
+
+$$
+H_A: \mu_M \ne \mu_L
+$$
+
+We use the observed test statistic:
+
+$$
+T_{\text{obs}} = \bar{X}_M - \bar{X}_L
+$$
+
+and generate a permutation distribution by shuffling the group labels $B$ times.
+
 ```{r}
 res <- perm_test_two_group_mean(
   df = test_df,
@@ -114,6 +134,24 @@ hist(
 )
 
 par(mfrow = c(1, 1))
+```
+
+# Conclusion (reject vs. fail to reject)
+
+We conclude using a significance level α=0.05.
+
+```{r results="asis"}
+alpha <- 0.05
+
+if (res$p_value < alpha) {
+  cat("Since p <", alpha, ", we reject $H_0$.\n\n")
+  cat("The observed difference in means is unlikely under random label assignment, ",
+      "providing statistical evidence that the indicator differs between development groups in 2023.\n")
+} else {
+  cat("Since p \\ge", alpha, ", we fail to reject $H_0$.\n\n")
+  cat("The observed difference in means is consistent with the permutation distribution ",
+      "under exchangeability; there is insufficient statistical evidence of a difference between development groups.\n")
+}
 ```
 
 # Bibliography

@@ -41,9 +41,9 @@ In particular, the examples focus on country-level estimates from the World Popu
 # Loading the Functions
 
 ```{r}
-source("scripts/data_preparation.R")
-source("scripts/permutation_functions.R")
-source("scripts/plot_perm_dist.R")
+source("data_preparation.R")
+source("permutation_functions.R")
+source("plot_perm_dist.R")
 ```
 
 
@@ -52,7 +52,7 @@ source("scripts/plot_perm_dist.R")
 We use the cleaned country-level dataset derived from the World Population Prospects 2024 Estimates data.
 
 ```{r}
-wpp_path <- "submissions/Data/wpp_country_indicators_2023.csv"
+wpp_path <- "../Data/wpp_country_indicators_2023.csv"
 wpp <- readr::read_csv(wpp_path, show_col_types = FALSE)
 
 dplyr::glimpse(wpp)
@@ -63,10 +63,7 @@ dplyr::glimpse(wpp)
 In this vignette we demonstrate the workflow using one indicator (birth rate). The same code applies to life expectancy or mortality rate by changing `indicator_col`.
 
 ```{r}
-indicator_col <- birth_rate
-group_col <- dev_group
-
-test_df <- perm_data_extract(wpp, {{ indicator_col }}, {{ group_col }})
+test_df <- perm_data_extract(wpp, birth_rate, dev_group)
 
 dplyr::count(test_df, group)
 summary(test_df$outcome)
@@ -77,7 +74,7 @@ summary(test_df$outcome)
 We run a two-sided permutation test using the difference in means (More developed - Less developed) as the test statistic.
 
 ```{r}
-res <- perm_test_two_group(
+res <- perm_test_two_group_mean(
   df = test_df,
   B = 2000,
   seed = 1,

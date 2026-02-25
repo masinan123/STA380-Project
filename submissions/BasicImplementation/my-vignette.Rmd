@@ -118,4 +118,3 @@ par(mfrow = c(1, 1))
 
 # Bibliography
 
-Note: you should have more citations than me; I purposely excluded ones that you should also use to prevent you from copying and pasting my work.

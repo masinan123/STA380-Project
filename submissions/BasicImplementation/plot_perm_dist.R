@@ -55,4 +55,5 @@ plot_perm_dist <- function(perm_result, bins = 40) {
 }
 
 
-# AI usage: the usage of invisible() and rgb()
+# AI usage: 
+# - the usage of invisible() and rgb()

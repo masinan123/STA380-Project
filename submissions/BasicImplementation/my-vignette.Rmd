@@ -54,7 +54,6 @@ wpp <- readr::read_csv(wpp_path, show_col_types = FALSE)
 dplyr::glimpse(wpp)
 ```
 
-
 # Preparing Data for a Selected Indicator
 
 In this vignette we demonstrate the workflow using one indicator (birth rate). The same code applies to life expectancy or mortality rate by changing `indicator_col`.
@@ -152,10 +151,10 @@ if (res$p_value < alpha) {
 
 # Generative AI Usage Statement
 
--   *`permutation_functions.R`* Clarifying roxygen documentation formatting and understanding tidy evaluation syntax (using {{ }}) within the wrapper functions.
+-   **`permutation_functions.R`** Clarifying roxygen documentation formatting and understanding tidy evaluation syntax (using {{ }}) within the wrapper functions.
 
--   *`plot_perm_dist.R`* Learning the usage of `invisible()` and `rgb()` functions.
+-   **`plot_perm_dist.R`** Learning the usage of `invisible()` and `rgb()` functions.
 
--   *`test-perm_function.R`* ChatGPT was used to suggest reasonable unit test cases and to explain the use of `skip_if_not()` for conditionally skipping wrapper tests when `perm_data_extract` is not yet implemented. Some test functions are named by the suggestion of AI.
+-   **`test-perm_function.R`** ChatGPT was used to suggest reasonable unit test cases and to explain the use of `skip_if_not()` for conditionally skipping wrapper tests when `perm_data_extract` is not yet implemented. Some test functions are named by the suggestion of AI.
 
 # Bibliography

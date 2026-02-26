@@ -58,6 +58,7 @@ wpp <- readr::read_csv(wpp_path, show_col_types = FALSE)
 dplyr::glimpse(wpp)
 ```
 
+
 # Preparing Data for a Selected Indicator
 
 In this vignette we demonstrate the workflow using one indicator (birth rate). The same code applies to life expectancy or mortality rate by changing `indicator_col`.
@@ -112,7 +113,6 @@ We plot the permutation distribution and highlight the observed test statistic w
 ```{r}
 plot_perm_dist(res, bins = 40)
 ```
-
 
 # Inspecting Outcome Distributions by Group
 

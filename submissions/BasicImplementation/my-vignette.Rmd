@@ -27,14 +27,11 @@ This vignette serves as an example of how to use the implemented functions to pe
 
 Specifically, the following examples demonstrate:
 
--   two-group permutation test based on the difference in means
-    `perm_test_two_group()`,
+-   two-group permutation test based on the difference in means `perm_test_two_group()`,
 
--   computation of permutation-based p-values
-    `perm_p_value()`, and
+-   computation of permutation-based p-values `perm_p_value()`, and
 
--   visualization of permutation distributions with the observed statistic
-    `plot_perm_dist()`.
+-   visualization of permutation distributions with the observed statistic `plot_perm_dist()`.
 
 In particular, the examples focus on country-level estimates from the World Population Prospects 2024 dataset and illustrate how permutation-based inference can be used to assess whether observed differences between development groups are statistically significant.
 
@@ -45,7 +42,6 @@ source("data_preparation.R")
 source("permutation_functions.R")
 source("plot_perm_dist.R")
 ```
-
 
 # Loading the Cleaned Dataset
 
@@ -113,7 +109,6 @@ We plot the permutation distribution and highlight the observed test statistic w
 plot_perm_dist(res, bins = 40)
 ```
 
-
 # Inspecting Outcome Distributions by Group
 
 ```{r}
@@ -154,5 +149,12 @@ if (res$p_value < alpha) {
 }
 ```
 
-# Bibliography
+# Generative AI Usage Statement
 
+-   *`permutation_functions.R`* Clarifying roxygen documentation formatting and understanding tidy evaluation syntax (using {{ }}) within the wrapper functions.
+
+-   *`plot_perm_dist.R`* Learning the usage of `invisible()` and `rgb()` functions.
+
+-   *`test-perm_function.R`* ChatGPT was used to suggest reasonable unit test cases and to explain the use of `skip_if_not()` for conditionally skipping wrapper tests when `perm_data_extract` is not yet implemented. Some test functions are named by the suggestion of AI.
+
+# Bibliography

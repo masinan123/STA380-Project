@@ -2,6 +2,6 @@
 .Rhistory
 .RData
 .Ruserdata
-
 # ignore raw data files (downloaded locally)
 submissions/Data/Raw
+.DS_Store

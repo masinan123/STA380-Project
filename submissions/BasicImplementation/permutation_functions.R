@@ -226,7 +226,7 @@ perm_stat_ks <- function(outcome, group) {
 }
 
 
-#' Two-Group Permutation Test on K-S statistic
+#' Two-Group Permutation Test on KS statistic
 #'
 #' Performs a permutation test to compare the distributions of two groups
 #' using the two-sample Kolmogorov-Smirnov (KS) statistic. 
@@ -303,7 +303,7 @@ perm_test_two_group_ks <- function(df, B = 2000, seed = NULL, alternative = "two
 #' perm_test_wrapper(raw_df, birth_rate, dev_group, B = 200)
 #'
 #' @export
-perm_test_wrapper <- function(df, outcome_col, group_col,
+perm_test_wrapper_ks <- function(df, outcome_col, group_col,
                               B = 2000, seed = NULL, alternative = "two.sided") {
   
   test_df <- perm_data_extract(df, {{ outcome_col }}, {{ group_col }})
@@ -318,6 +318,7 @@ perm_test_wrapper <- function(df, outcome_col, group_col,
 # Generative AI (ChatGPT) was used to clarify:
 # - roxygen documentation formatting
 # - tidy evaluation syntax using {{ }} in wrapper functions
+# - usage of stats package and ecdf()
 #
 # All statistical logic and implementation decisions were reviewed and
 # adapted by the author.

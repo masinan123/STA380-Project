@@ -4,8 +4,8 @@ library(testthat)
 test_that("plot_perm_dist returns structured histogram output", {
   
   perm_res <- list(
-    perm = rnorm(100, mean = 0, sd = 1),
-    obs  = 0.5
+    perm_stats = rnorm(100, mean = 0, sd = 1),
+    observed  = 0.5
   )
   out <- plot_perm_dist(perm_res)
   
@@ -19,7 +19,7 @@ test_that("plot_perm_dist returns structured histogram output", {
 
 
 
-test_that("plot_perm_dist matches observed statistic from real data", {
+test_that("plot_perm_dist output matches observed statistic from real data", {
   
   df <- read.csv("submissions/Data/wpp_country_indicators_2023.csv")
   perm_res <- perm_test_wrapper(df, 
@@ -29,7 +29,7 @@ test_that("plot_perm_dist matches observed statistic from real data", {
   hist_res <- plot_perm_dist(perm_res, bins = 40)
   
   test_df <- perm_data_extract(df, birth_rate, dev_group)
-  expected_obs <- perm_stat_mean_diff(test_df$outcome, test_df$group)
+  expected_obs <- perm_stat_ks(test_df$outcome, test_df$group)
   
   expect_type(hist_res, "list")
   expect_named(hist_res, c("hist", "obs", "perm"))
@@ -40,10 +40,22 @@ test_that("plot_perm_dist matches observed statistic from real data", {
 })
 
 
+test_that("test plot_perm_dist on different bins", {
+  perm_res <- list(
+    perm_stats = rnorm(100, mean = 0, sd = 1),
+    observed  = 0.5
+  )
+  res1 <- plot_perm_dist(perm_res, bins = 50)
+  res2 <- plot_perm_dist(perm_res, bins = 20)
+  
+  expect_equal(length(res1$hist$breaks)-1, 50, tolerance = 5)
+  expect_equal(length(res2$hist$breaks)-1, 20, tolerance = 5)
+  expect_false(isTRUE(all.equal(res1$hist$breaks, res2$hist$breaks)))
+})
 
 
 # AI usage:
 # Generative AI used in this file is:
 # - naming of the test functions
-# - 
-
+# - logic of testing the histogram generated 
+#   (expect_equal(sum(out$hist$counts), length(out$perm)))

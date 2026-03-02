@@ -24,3 +24,14 @@ test_that("test perm_test_two_group_ks returns correctly", {
   expect_equal(obs, pval$observed)
   expect_equal(pval$p_value, 1)
 })
+
+
+test_that("test perm_stat_ks on unequal group size", {
+  outcome = c(1, 3, 5, 2, 4)
+  group = factor(c("More developed", "More developed", "More developed", 
+                   "Less developed", "Less developed"))
+  res <- perm_stat_ks(outcome, group)
+  
+  expect_equal(res, 1/3)
+})
+

@@ -53,3 +53,68 @@ test_that("test perm_test_two_group_ks returns correctly", {
   expect_equal(pval$p_value, 1)
 })
 
+## here
+test_that("perm_p_value_mc computes p-value correctly for greater/less/two.sided", {
+  
+  perm_stats <- c(-2, -1, 0, 1, 2)
+  observed <- 1
+  
+  # greater
+  expect_equal(
+    perm_p_value_mc(observed, perm_stats, alternative = "greater"),
+    (2 + 1) / (5 + 1)
+  )
+  
+  # less
+  expect_equal(
+    perm_p_value_mc(observed, perm_stats, alternative = "less"),
+    (4 + 1) / (5 + 1)
+  )
+  
+  # two.sided
+  expect_equal(
+    perm_p_value_mc(observed, perm_stats, alternative = "two.sided"),
+    (4 + 1) / (5 + 1)
+  )
+})
+
+
+test_that("perm_p_value_mc uses abs() for two.sided (observed sign should not matter)", {
+  
+  perm_stats <- c(-2, -1, 0, 1, 2)
+  
+  p1 <- perm_p_value_mc(1, perm_stats, alternative = "two.sided")
+  p2 <- perm_p_value_mc(-1, perm_stats, alternative = "two.sided")
+  
+  expect_equal(p1, p2)
+})
+
+
+test_that("perm_p_value_mc returns smallest possible Monte Carlo p-value when observed is more extreme than all perms", {
+  
+  perm_stats <- c(-2, -1, 0, 1, 2)
+  B <- length(perm_stats)
+  
+  # greater
+  expect_equal(
+    perm_p_value_mc(10, perm_stats, alternative = "greater"),
+    1 / (B + 1)
+  )
+  
+  # less
+  expect_equal(
+    perm_p_value_mc(-10, perm_stats, alternative = "less"),
+    1 / (B + 1)
+  )
+})
+
+
+test_that("perm_p_value_mc errors for invalid alternative", {
+  
+  perm_stats <- c(-2, -1, 0, 1, 2)
+  
+  expect_error(
+    perm_p_value_mc(1, perm_stats, alternative = "bad"),
+    "alternative must be one of 'two.sided', 'greater', 'less'"
+  )
+})

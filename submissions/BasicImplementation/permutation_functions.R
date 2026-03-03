@@ -1,3 +1,6 @@
+library(dplyr)
+
+
 #  Test using KS statistic
 
 #' Compute Kolmogorov–Smirnov (KS) Test statistic
@@ -138,8 +141,6 @@ perm_test_wrapper_ks <- function(df, outcome_col, group_col,
   test_df <- perm_data_extract(df, {{ outcome_col }}, {{ group_col }})
   perm_test_two_group_ks(test_df, B = B, seed = seed)
 }
-
-
 
 
 

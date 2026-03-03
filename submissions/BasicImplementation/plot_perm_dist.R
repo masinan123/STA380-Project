@@ -34,7 +34,7 @@ plot_perm_dist <- function(perm_result, bins = 40) {
             col = "lightblue", 
             border = "white", 
             main = "Permutation Distribution", 
-            xlab = "Absolute Difference in Means",
+            xlab = "Permutation Test Statistic",
             xlim = c(min(perm), x_right) )
   
   abline(v = obs, col = "red", lwd = 3)

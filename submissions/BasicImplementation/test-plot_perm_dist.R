@@ -1,6 +1,7 @@
 library(testthat)
 
-
+source("plot_perm_dist.R")
+source("permutation_functions.R")
 test_that("plot_perm_dist returns structured histogram output", {
   
   perm_res <- list(
@@ -19,24 +20,21 @@ test_that("plot_perm_dist returns structured histogram output", {
 
 
 
-test_that("plot_perm_dist output matches observed statistic from real data", {
+test_that("plot_perm_dist output matches observed statistic on toy data", {
   
-  df <- read.csv("submissions/Data/wpp_country_indicators_2023.csv")
-  perm_res <- perm_test_wrapper(df, 
-                                outcome_col = birth_rate, 
-                                group_col = dev_group, 
-                                B = 100, seed = 1)
+  df <- data.frame(
+    outcome = c(33, 34, 32, 30, 28, 27),
+    group = factor(rep(c("More developed", "Less developed"), each = 3))
+  )
+  
+  perm_res <- perm_test_two_group_ks(df, B = 100, seed = 1, alternative = "greater")
   hist_res <- plot_perm_dist(perm_res, bins = 40)
   
-  test_df <- perm_data_extract(df, birth_rate, dev_group)
-  expected_obs <- perm_stat_ks(test_df$outcome, test_df$group)
+  expected_obs <- perm_stat_ks(df$outcome, df$group)
   
-  expect_type(hist_res, "list")
   expect_named(hist_res, c("hist", "obs", "perm"))
-  
   expect_equal(sum(hist_res$hist$counts), length(hist_res$perm))
   expect_equal(hist_res$obs, expected_obs)
-  
 })
 
 

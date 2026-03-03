@@ -1,5 +1,3 @@
-library(dplyr)
-
 #  Test using KS statistic
 
 #' Compute Kolmogorov–Smirnov (KS) Test statistic
@@ -31,6 +29,37 @@ perm_stat_ks <- function(outcome, group) {
   
   grid <- sort(unique(c(xA, xB)))
   max(abs(ecdf_A(grid) - ecdf_B(grid)))
+}
+
+
+#' Compute Monte Carlo permutation p-value
+#'
+#' Computes the Monte Carlo permutation p-value using the standard
+#' (+1)/(B+1) adjustment.
+#'
+#' @param observed Observed test statistic.
+#' @param perm_stats Vector of permuted statistics.
+#' @param alternative "two.sided", "greater", or "less".
+#' @return Numeric p-value.
+#'
+#' @examples
+#' perm_p_value_mc(2, rnorm(1000), alternative = "greater")
+#'
+#' @export
+perm_p_value_mc <- function(observed, perm_stats, alternative = "two.sided") {
+  
+  if (alternative == "greater") {
+    (sum(perm_stats >= observed) + 1) / (length(perm_stats) + 1)
+    
+  } else if (alternative == "less") {
+    (sum(perm_stats <= observed) + 1) / (length(perm_stats) + 1)
+    
+  } else if (alternative == "two.sided") {
+    (sum(abs(perm_stats) >= abs(observed)) + 1) / (length(perm_stats) + 1)
+    
+  } else {
+    stop("alternative must be one of 'two.sided', 'greater', 'less'")
+  }
 }
 
 
@@ -69,16 +98,8 @@ perm_test_two_group_ks <- function(df, B = 2000, seed = NULL, alternative = "two
     g_perm <- sample(df$group)
     perm_stats[b] <- perm_stat_ks(df$outcome, g_perm)
   }
-  if (alternative == "greater" || alternative == "two.sided") {
-    p_value <- mean(perm_stats >= observed)
-  }
-  else if (alternative == "less") {
-    p_value <- mean(perm_stats <= observed)
-  }
-  else {
-    stop("alternative must be one of 'two.sided', 'greater', 'less'")
-  }
-  # p_value <- perm_p_value(observed, perm_stats, alternative)
+  
+  p_value <- perm_p_value_mc(observed, perm_stats, alternative)
   
   list(
     observed = observed,

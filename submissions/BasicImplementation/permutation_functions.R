@@ -9,7 +9,7 @@ library(dplyr)
 #' Functions (ECDFs) of two groups. 
 #' @param outcome A numeric outcome vector.
 #' @param group A group vector with two levels.
-#' @return Numeric difference in means.
+#' @return Numeric KS statistic (maximum absolute difference between ECDFs).
 #'
 #' @examples
 #' outcome <- c(1, 2, 3, 10, 11, 12)

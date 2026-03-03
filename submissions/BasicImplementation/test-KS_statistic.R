@@ -18,7 +18,7 @@ test_that("perm_stat_ks returns 1 for completely separated groups", {
   group <- factor(rep(c("More developed", "Less developed"), each = 3))
   
   ks <- perm_stat_ks(outcome, group)
-  testthat::expect_equal(ks, 1)
+  expect_equal(ks, 1)
 })
 
 

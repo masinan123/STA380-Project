@@ -132,7 +132,7 @@ perm_test_two_group_ks <- function(df, B = 2000, seed = NULL, alternative = "two
 #'   dev_group = c("More developed", "Less developed",
 #'                 "More developed", "Less developed")
 #' )
-#' perm_test_wrapper(raw_df, birth_rate, dev_group, B = 200)
+#' perm_test_wrapper_ks(raw_df, birth_rate, dev_group, B = 200)
 #'
 #' @export
 perm_test_wrapper_ks <- function(df, outcome_col, group_col,

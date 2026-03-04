@@ -23,17 +23,17 @@ library(readr)
 library(testthat)
 ```
 
-This vignette serves as an example of how to use the implemented functions to perform a two-group permutation test for comparing demographic indicators across development groups using country-level data.
+This vignette demonstrates how to use the package functions to perform a two-group Monte Carlo permutation test comparing demographic indicators across development groups using country-level data.
 
-Specifically, the following examples demonstrate:
+The workflow shown includes:
 
--   two-group permutation test based on the difference in means `perm_test_two_group()`,
+- preparing a clean two-column dataset with `perm_data_extract()`,
 
--   computation of permutation-based p-values `perm_p_value()`, and
+- computing a two-sample Kolmogorov–Smirnov (KS) statistic with `perm_stat_ks()`,
 
--   visualization of permutation distributions with the observed statistic `plot_perm_dist()`.
+- running a permutation test with `perm_test_two_group_ks()`, and
 
-In particular, the examples focus on country-level estimates from the World Population Prospects 2024 dataset and illustrate how permutation-based inference can be used to assess whether observed differences between development groups are statistically significant.
+- visualizing the permutation distribution with `plot_perm_dist()`.
 
 # Loading the Functions
 
@@ -65,32 +65,24 @@ dplyr::count(test_df, group)
 summary(test_df$outcome)
 ```
 
-# Running the Permutation Test
+# Running the Permutation Test (KS statistic)
 
-We run a two-sided permutation test using the difference in means (More developed - Less developed) as the test statistic.
+We run a two-sided permutation test using the KS statistic, which measures the maximum difference between the empirical CDFs of the two groups.
 
 ## Hypotheses
 
-Let $\mu_M$ be the mean outcome for **More developed** and $\mu_L$ for **Less developed**.
+Let $F_M(x)$ be the distribution of the **More developed** group and $F_L(x)$ be the distribution of the **Less developed** group.
 
-$$
-H_0: \mu_M = \mu_L
-$$
+$$H_0: F_M(x) = F_L(x)$$
+$$H_A: F_M(x) \neq F_L(x)$$
 
-$$
-H_A: \mu_M \ne \mu_L
-$$
+The observed test statistic is the Kolmogorov-Smirnov distance, defined as:
 
-We use the observed test statistic:
-
-$$
-T_{\text{obs}} = \bar{X}_M - \bar{X}_L
-$$
-
-and generate a permutation distribution by shuffling the group labels $B$ times.
+$$D_{obs} = \sup_x |F_M(x) - F_L(x)|$$
+We generate a permutation distribution by shuffling the group labels 𝐵 times.
 
 ```{r}
-res <- perm_test_two_group_mean(
+res <- perm_test_two_group_ks(
   df = test_df,
   B = 2000,
   seed = 1,
@@ -101,13 +93,24 @@ res$observed
 res$p_value
 ```
 
+## Notes on the p-value
+
+The function computes a Monte Carlo permutation p-value using the standard adjustment:
+
+$p = \frac{\#\{\text{extreme permutations}\} + 1}{B + 1}$
+
+This prevents reporting a p-value of exactly 0 when 𝐵is finite.
+
+
 # Visualizing the Permutation Distribution
 
-We plot the permutation distribution and highlight the observed test statistic with a vertical line.
+We plot the permutation distribution and highlight the observed KS statistic with a vertical line.
 
 ```{r}
 plot_perm_dist(res, bins = 40)
 ```
+
+Interpretation: if the observed statistic lies far in the tail of the permutation distribution, then the observed group difference is unlikely under label exchangeability.
 
 # Inspecting Outcome Distributions by Group
 
@@ -139,13 +142,13 @@ We conclude using a significance level α=0.05.
 alpha <- 0.05
 
 if (res$p_value < alpha) {
-  cat("Since p <", alpha, ", we reject $H_0$.\n\n")
-  cat("The observed difference in means is unlikely under random label assignment, ",
-      "providing statistical evidence that the indicator differs between development groups in 2023.\n")
+  cat("Since p <", alpha, ", we reject $H_0$.\n")
+  cat("The observed KS statistic is unlikely under random label assignment, ")
+  cat("providing statistical evidence that the indicator distribution differs between development groups in 2023.\n")
 } else {
-  cat("Since p \\ge", alpha, ", we fail to reject $H_0$.\n\n")
-  cat("The observed difference in means is consistent with the permutation distribution ",
-      "under exchangeability; there is insufficient statistical evidence of a difference between development groups.\n")
+  cat("Since p \\ge", alpha, ", we fail to reject $H_0$.\n")
+  cat("The observed KS statistic is consistent with the permutation distribution under exchangeability; ")
+  cat("there is insufficient statistical evidence of a distributional difference between development groups.\n")
 }
 ```
 

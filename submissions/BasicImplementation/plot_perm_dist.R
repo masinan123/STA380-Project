@@ -55,5 +55,34 @@ plot_perm_dist <- function(perm_result, bins = 40) {
 }
 
 
+plot_two_ECDFs <- function(outcome, group) {
+  groups <- as.character(group)
+  groups <- unique(group)
+  
+  if (length(groups) != 2) {
+    stop("group must have exactly two levels. ")
+  }
+  xA <- outcome[group == groups[1]]
+  xB <- outcome[group == groups[2]]
+  
+  ecdf_A <- stats::ecdf(xA)
+  ecdf_B <- stats::ecdf(xB)
+  
+  plot(ecdf_A, col="blue", lwd=1,
+       main="ECDF Comparison between two groups",
+       xlab="Outcome",
+       ylab="Cumulative Probability")
+  
+  lines(ecdf_B, col="yellow", lwd=1)
+  
+  legend("bottomright",
+         legend=c("More developed","Less developed"),
+         col=c("blue","yellow"),
+         lwd=2)
+  
+}
+
+
+
 # AI usage: 
 # - the usage of invisible() and rgb()

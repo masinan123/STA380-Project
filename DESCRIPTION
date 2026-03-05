@@ -5,8 +5,8 @@ Authors@R:
     c(
       person("Qianying", "Shen", email = "qianying.shen@mail.utoronto.ca", role = c("aut", "cre")),
       person("Kevin", "Luo", role = "aut"),
-      person("Sinan", "Ma", role = "aut")
-      person("Zhengjia", "Li", role = "aut")
+      person("Sinan", "Ma", role = "aut"),
+      person("Zhengjia", "Li", role = "aut"),
       person("Gino", "Li", role = "aut")
     )
 Description: Implements two-group Monte Carlo permutation tests for comparing demographic indicators between WPP 2024 development groups, including data preparation and visualization of permutation distributions.

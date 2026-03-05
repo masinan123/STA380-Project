@@ -54,7 +54,7 @@ test_that("test perm_test_two_group_ks returns correctly", {
   expect_equal(pval$p_value, 1)
 })
 
-## here
+
 test_that("perm_p_value_mc computes p-value correctly for greater/less/two.sided", {
   
   perm_stats <- c(-2, -1, 0, 1, 2)

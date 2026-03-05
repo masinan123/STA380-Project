@@ -57,7 +57,7 @@ plot_perm_dist <- function(perm_result, bins = 40) {
 
 plot_two_ECDFs <- function(outcome, group) {
   groups <- as.character(group)
-  groups <- unique(group)
+  groups <- unique(groups)
   
   if (length(groups) != 2) {
     stop("group must have exactly two levels. ")

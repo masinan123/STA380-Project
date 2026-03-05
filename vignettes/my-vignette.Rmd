@@ -115,23 +115,33 @@ Interpretation: if the observed statistic lies far in the tail of the permutatio
 # Inspecting Outcome Distributions by Group
 
 ```{r}
-par(mfrow = c(1, 2))
 
-hist(
-  test_df$outcome[test_df$group == "More developed"],
-  main = "More developed: outcome",
-  xlab = "Outcome",
-  breaks = 30
-)
+outcome <- test_df$outcome
+group <- test_df$group
 
-hist(
-  test_df$outcome[test_df$group == "Less developed"],
-  main = "Less developed: outcome",
-  xlab = "Outcome",
-  breaks = 30
-)
-
-par(mfrow = c(1, 1))
+groups <- as.character(group)
+groups <- unique(groups)
+  
+if (length(groups) != 2) {
+    stop("group must have exactly two levels. ")
+}
+xA <- outcome[group == groups[1]]
+xB <- outcome[group == groups[2]]
+  
+ecdf_A <- stats::ecdf(xA)
+ecdf_B <- stats::ecdf(xB)
+  
+plot(ecdf_A, col="blue", lwd=1,
+       main="ECDF Comparison between two groups",
+       xlab="Outcome",
+       ylab="Cumulative Probability")
+  
+lines(ecdf_B, col="yellow", lwd=1)
+  
+legend("bottomright",
+         legend=c("More developed","Less developed"),
+         col=c("blue","yellow"),
+         lwd=2)
 ```
 
 # Conclusion (reject vs. fail to reject)

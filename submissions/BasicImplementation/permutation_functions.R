@@ -14,7 +14,7 @@ library(dplyr)
 #' @examples
 #' outcome <- c(1, 2, 3, 10, 11, 12)
 #' group <- rep(c("More developed", "Less developed"), each = 3)
-#' perm_stat_mean_diff(outcome, group)
+#' perm_stat_ks(outcome, group)
 #'
 #' @export
 perm_stat_ks <- function(outcome, group) {
@@ -84,7 +84,7 @@ perm_p_value_mc <- function(observed, perm_stats, alternative = "two.sided") {
 #'   outcome = c(33, 34, 32, 30, 28, 27),
 #'   group = factor(rep(c("More developed", "Less developed"), each = 3))
 #' )
-#' perm_test_two_group_mean(df, B = 500, seed = 1)
+#' perm_test_two_group_ks(df, B = 500, seed = 1)
 #'
 #' @export
 perm_test_two_group_ks <- function(df, B = 2000, seed = NULL, alternative = "two.sided") {
@@ -119,7 +119,7 @@ perm_test_two_group_ks <- function(df, B = 2000, seed = NULL, alternative = "two
   
   list(
     observed = observed,
-    perm_stat = perm_stats,
+    perm_stats = perm_stats,
     p_value = p_value
   )
 }
@@ -152,7 +152,7 @@ perm_test_wrapper_ks <- function(df, outcome_col, group_col,
                               B = 2000, seed = NULL, alternative = "two.sided") {
   
   test_df <- perm_data_extract(df, {{ outcome_col }}, {{ group_col }})
-  perm_test_two_group_ks(test_df, B = B, seed = seed)
+  perm_test_two_group_ks(test_df, B = B, seed = seed, alternative = alternative)
 }
 
 

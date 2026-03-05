@@ -14,24 +14,22 @@ library(dplyr)
 #' @examples
 #' outcome <- c(1, 2, 3, 10, 11, 12)
 #' group <- rep(c("More developed", "Less developed"), each = 3)
-#' perm_stat_mean_diff(outcome, group)
+#' perm_stat_ks(outcome, group)
 #'
 #' @export
 perm_stat_ks <- function(outcome, group) {
-  groups <- as.character(group)
-  groups <- unique(group)
+  # group should have exactly 2 levels
+  g <- unique(group)
+  if (length(g) != 2) stop("group must have exactly two levels. ")
   
-  if (length(groups) != 2) {
-    stop("group must have exactly two levels. ")
-  }
-  xA <- outcome[group == groups[1]]
-  xB <- outcome[group == groups[2]]
+  x <- outcome[group == g[1]]
+  y <- outcome[group == g[2]]
   
-  ecdf_A <- stats::ecdf(xA)
-  ecdf_B <- stats::ecdf(xB)
+  Fx <- stats::ecdf(x)
+  Gy <- stats::ecdf(y)
+  z <- c(x, y)
   
-  grid <- sort(unique(c(xA, xB)))
-  max(abs(ecdf_A(grid) - ecdf_B(grid)))
+  max(abs(Fx(z) - Gy(z)))
 }
 
 
@@ -86,20 +84,35 @@ perm_p_value_mc <- function(observed, perm_stats, alternative = "two.sided") {
 #'   outcome = c(33, 34, 32, 30, 28, 27),
 #'   group = factor(rep(c("More developed", "Less developed"), each = 3))
 #' )
-#' perm_test_two_group_mean(df, B = 500, seed = 1)
+#' perm_test_two_group_ks(df, B = 500, seed = 1)
 #'
 #' @export
 perm_test_two_group_ks <- function(df, B = 2000, seed = NULL, alternative = "two.sided") {
   
   if (!is.null(seed)) set.seed(seed)
   
+  # calculate the observed k-s statistic
   observed <- perm_stat_ks(df$outcome, df$group)
+  
+  outcome <- df$outcome
+  group <- df$group
+  
+  g <- unique(group)
+  # make sure there are two groups
+  if (length(g) != 2) stop("df$group must have exactly 2 groups")
+  
+  n1 <- sum(group == g[1])
+  z <- outcome
+  n <- length(z)
   
   perm_stats <- numeric(B)
   
-  for (b in seq_len(B)) {
-    g_perm <- sample(df$group)
-    perm_stats[b] <- perm_stat_ks(df$outcome, g_perm)
+  for (i in 1:B) {
+    k <- sample.int(n, size = n1)  # choose indices for permuted group 1
+    perm_group <- rep(g[2], n)
+    perm_group[k] <- g[1]
+    # calculate k-s statistic for the simulation
+    perm_stats[i] <- perm_stat_ks(z, perm_group)
   }
   
   p_value <- perm_p_value_mc(observed, perm_stats, alternative)
@@ -136,12 +149,11 @@ perm_test_two_group_ks <- function(df, B = 2000, seed = NULL, alternative = "two
 #'
 #' @export
 perm_test_wrapper_ks <- function(df, outcome_col, group_col,
-                              B = 2000, seed = NULL, alternative = "two.sided") {
+                                 B = 2000, seed = NULL, alternative = "two.sided") {
   
   test_df <- perm_data_extract(df, {{ outcome_col }}, {{ group_col }})
-  perm_test_two_group_ks(test_df, B = B, seed = seed)
+  perm_test_two_group_ks(test_df, B = B, seed = seed, alternative = alternative)
 }
-
 
 
 # AI usage:

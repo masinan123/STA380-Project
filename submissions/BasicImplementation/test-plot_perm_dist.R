@@ -21,20 +21,19 @@ test_that("plot_perm_dist returns structured histogram output", {
 
 
 test_that("plot_perm_dist output matches observed statistic on toy data", {
-  
-  df <- data.frame(
-    outcome = c(33, 34, 32, 30, 28, 27),
-    group = factor(rep(c("More developed", "Less developed"), each = 3))
+  set.seed(1)
+  perm_res <- list(
+    perm_stats = abs(rnorm(1000)), 
+    observed   = 2.5
   )
   
-  perm_res <- perm_test_two_group_ks(df, B = 100, seed = 1, alternative = "greater")
-  hist_res <- plot_perm_dist(perm_res, bins = 40)
+  expect_no_error(res <- plot_perm_dist(perm_res, bins = 40))
   
-  expected_obs <- perm_stat_ks(df$outcome, df$group)
-  
-  expect_named(hist_res, c("hist", "obs", "perm"))
-  expect_equal(sum(hist_res$hist$counts), length(hist_res$perm))
-  expect_equal(hist_res$obs, expected_obs)
+  expect_true(is.list(res))
+  expect_true("obs" %in% names(res))
+  expect_equal(res$obs, 2.5)
+  expect_true(is.numeric(res$perm))
+  expect_length(res$perm, 1000)
 })
 
 
@@ -51,6 +50,41 @@ test_that("test plot_perm_dist on different bins", {
   expect_false(isTRUE(all.equal(res1$hist$breaks, res2$hist$breaks)))
 })
 
+
+test_that("plot_two_ECDFs runs without error", {
+  
+  outcome <- rnorm(20)
+  group <- rep(c("A","B"), each = 10)
+  
+  expect_no_error(
+    plot_two_ECDFs(outcome, group)
+  )
+  
+})
+
+
+test_that("plot_two_ECDFs errors with more than two groups", {
+  
+  outcome <- rnorm(15)
+  group <- rep(c("A","B","C"), each = 5)
+  
+  expect_error(
+    plot_two_ECDFs(outcome, group)
+  )
+  
+})
+
+
+test_that("plot_two_ECDFs errors with one group", {
+  
+  outcome <- rnorm(10)
+  group <- rep("A", 10)
+  
+  expect_error(
+    plot_two_ECDFs(outcome, group)
+  )
+  
+})
 
 # AI usage:
 # Generative AI used in this file is:

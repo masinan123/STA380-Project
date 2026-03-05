@@ -1,0 +1,27 @@
+function code:
+
+Unfortunately, this version also has a massive serious issue. I went ahead and fixed it.
+
+You can read the comments. I have discussed how the permutation test works from Monday's lecture. Your original code did not follow this correctly. in particular, because perm_stat_ks neatly organizes the groups into two datasets, you would never end up with a proper permutation reshuffling (-0.6)
+
+vignette:
+
+1. you can use message = FALSE to hide the loading messages for packages (they are annoying to look at).
+I've already edited the vignette for you.
+
+2. regarding the plot "Visualizing the Permutation Distribution"
+
+don't you think it is weird that the vertical line is THAT far apart from the graph?
+
+3. regarding the section "Conclusion (reject vs. fail to reject)"
+
+we don't see the result code; we just see the if/else statement you wrote above it.
+
+testing code:
+
+test-data_prep.R is unnecessary; you are merely testing functions from other packages, and not your own.
+
+The others appear okay... It is possible that with these new changes, some of them might fail (and if so, this was because the values you used were faulty in the beginning.)
+
+1.4/2
+

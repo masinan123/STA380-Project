@@ -1,5 +1,5 @@
 library(testthat)
-source("data_preparation.R")
+library(Sta380Project)
 
 test_that("test perm_data_extract with simple data", {
   df <- tibble::tibble(

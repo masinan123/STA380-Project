@@ -1,5 +1,5 @@
 library(testthat)
-
+source("data_preparation.R")
 
 test_that("test perm_data_extract with simple data", {
   df <- tibble::tibble(
@@ -30,5 +30,3 @@ test_that("prep_perm_data on data with NA in columns", {
   expect_equal(as.character(out$group), c("More developed", "Less developed"))
   
 })
-
-

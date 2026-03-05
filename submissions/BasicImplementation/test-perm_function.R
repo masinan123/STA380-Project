@@ -1,6 +1,6 @@
 library(testthat)
+library(Sta380Project)
 
-source("permutation_functions.R")
 
 test_that("test perm_stat_ks calculates correctly", {
   

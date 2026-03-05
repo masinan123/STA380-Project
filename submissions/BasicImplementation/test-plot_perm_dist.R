@@ -1,7 +1,6 @@
 library(testthat)
+library(Sta380Project)
 
-source("plot_perm_dist.R")
-source("permutation_functions.R")
 test_that("plot_perm_dist returns structured histogram output", {
   
   perm_res <- list(

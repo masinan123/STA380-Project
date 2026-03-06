@@ -11,7 +11,7 @@ library(dplyr)
 #' 
 #' @param df A data frame or tibble containing the dataset. 
 #' @param outcome_col A column name representing the numeric outcome variable 
-#'        (e.g., birth rate, life_exp). 
+#'        (e.g., `birth rate`s, life_exp). 
 #' @param group_col A column name representing the development group classification variable.
 #' @return A data frame with two columns, outcome and group:
 #' \describe{
@@ -21,12 +21,13 @@ library(dplyr)
 #' 
 #' @examples
 #' df <- tibble::tibble(
-#'   birth rate = c(33, 34, 32, 30),
+#'   birth_rate = c(33, 34, 32, 30),
 #'   dev_group = c("More developed", "Less developed",
 #'                 "More developed", "Other") )
 #' test_df <- perm_data_extract(df, birth_rate, dev_group)
 #' 
 #' @importFrom dplyr select filter mutate
+#' @importFrom magrittr %>%
 #' @export
 
 perm_data_extract <- function(df, outcome_col, group_col) {

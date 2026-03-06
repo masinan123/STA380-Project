@@ -13,7 +13,7 @@ plot_perm_dist(perm_result, bins = 40)
 \item{observed}{Observed test statistic. }
 }}
 
-\item{bin}{An Integer specifying the number of histogram bins. Defaults to 40.}
+\item{bins}{An Integer specifying the number of histogram bins. Defaults to 40.}
 }
 \value{
 Invisibly returns a list with:

@@ -10,10 +10,6 @@ A data frame with country rows and indicator columns (e.g., birth_rate) and a gr
 \source{
 UN World Population Prospects 2024
 }
-\usage{
-wpp
-}
 \description{
 Country-level demographic indicators derived from UN World Population Prospects 2024.
 }
-\keyword{datasets}

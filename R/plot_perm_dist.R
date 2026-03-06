@@ -8,7 +8,7 @@
 #'    \item{perm_stats}{Numeric vector of permutation statistic. }
 #'    \item{observed}{Observed test statistic. }
 #' }
-#' @param bin An Integer specifying the number of histogram bins. Defaults to 40. 
+#' @param bins An Integer specifying the number of histogram bins. Defaults to 40. 
 #' @return Invisibly returns a list with:
 #' \describe{
 #'  \item{hist}{Histogram object returned by function hist().}

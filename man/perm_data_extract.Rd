@@ -10,7 +10,7 @@ perm_data_extract(df, outcome_col, group_col)
 \item{df}{A data frame or tibble containing the dataset.}
 
 \item{outcome_col}{A column name representing the numeric outcome variable
-(e.g., birth rate, life_exp).}
+(e.g., \verb{birth rate}s, life_exp).}
 
 \item{group_col}{A column name representing the development group classification variable.}
 }
@@ -32,7 +32,7 @@ Only observations from the groups "More developed" and
 }
 \examples{
 df <- tibble::tibble(
-  birth rate = c(33, 34, 32, 30),
+  birth_rate = c(33, 34, 32, 30),
   dev_group = c("More developed", "Less developed",
                 "More developed", "Other") )
 test_df <- perm_data_extract(df, birth_rate, dev_group)

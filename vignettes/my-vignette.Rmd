@@ -9,6 +9,13 @@ bibliography: bibliography.bib
 nocite: "@*"
 ---
 
+```{r setup}
+library(Sta380Project)
+library(dplyr)
+library(readr)
+library(testthat)
+```
+
 ```{r, include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
@@ -17,11 +24,6 @@ knitr::opts_chunk$set(
 knitr::opts_chunk$set(fig.width=7, fig.height=6) 
 ```
 
-```{r setup}
-library(dplyr)
-library(readr)
-library(testthat)
-```
 
 This vignette demonstrates how to use the package functions to perform a two-group Monte Carlo permutation test comparing demographic indicators across development groups using country-level data.
 
@@ -35,21 +37,14 @@ The workflow shown includes:
 
 - visualizing the permutation distribution with `plot_perm_dist()`.
 
-# Loading the Functions
-
-```{r}
-source("data_preparation.R")
-source("permutation_functions.R")
-source("plot_perm_dist.R")
-```
-
 # Loading the Cleaned Dataset
 
 We use the cleaned country-level dataset derived from the World Population Prospects 2024 Estimates data.
 
 ```{r}
-wpp_path <- "../Data/wpp_country_indicators_2023.csv"
-wpp <- readr::read_csv(wpp_path, show_col_types = FALSE)
+# wpp_path <- "../Data/wpp_country_indicators_2023.csv"
+# wpp <- readr::read_csv(wpp_path, show_col_types = FALSE)
+data("wpp", package = "Sta380Project")
 
 dplyr::glimpse(wpp)
 ```

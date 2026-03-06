@@ -21,6 +21,6 @@ Functions (ECDFs) of two groups.
 \examples{
 outcome <- c(1, 2, 3, 10, 11, 12)
 group <- rep(c("More developed", "Less developed"), each = 3)
-perm_stat_mean_diff(outcome, group)
+perm_stat_ks(outcome, group)
 
 }

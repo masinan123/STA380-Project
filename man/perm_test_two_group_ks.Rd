@@ -31,6 +31,6 @@ df <- tibble::tibble(
   outcome = c(33, 34, 32, 30, 28, 27),
   group = factor(rep(c("More developed", "Less developed"), each = 3))
 )
-perm_test_two_group_mean(df, B = 500, seed = 1)
+perm_test_two_group_ks(df, B = 500, seed = 1)
 
 }

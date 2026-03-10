@@ -9,21 +9,18 @@ bibliography: bibliography.bib
 nocite: "@*"
 ---
 
-```{r setup}
+```{r setup, include=FALSE, message = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.width = 7,
+  fig.height = 6
+)
+
 library(Sta380Project)
 library(dplyr)
 library(readr)
-library(testthat)
 ```
-
-```{r, include = FALSE}
-knitr::opts_chunk$set(
-  collapse = TRUE,
-  comment = "#>"
-)
-knitr::opts_chunk$set(fig.width=7, fig.height=6) 
-```
-
 
 This vignette demonstrates how to use the package functions to perform a two-group Monte Carlo permutation test comparing demographic indicators across development groups using country-level data.
 
@@ -105,7 +102,7 @@ We plot the permutation distribution and highlight the observed KS statistic wit
 plot_perm_dist(res, bins = 40)
 ```
 
-Interpretation: if the observed statistic lies far in the tail of the permutation distribution, then the observed group difference is unlikely under label exchangeability.
+Interpretation: The observed KS statistic lies far in the right tail of the permutation distribution, indicating that the observed difference between the two groups is much larger than would typically arise under random label assignment.
 
 # Inspecting Outcome Distributions by Group
 
@@ -145,16 +142,9 @@ We conclude using a significance level α=0.05.
 
 ```{r results="asis"}
 alpha <- 0.05
+p_value <- round(res$p_value, 4)
 
-if (res$p_value < alpha) {
-  cat("Since p <", alpha, ", we reject $H_0$.\n")
-  cat("The observed KS statistic is unlikely under random label assignment, ")
-  cat("providing statistical evidence that the indicator distribution differs between development groups in 2023.\n")
-} else {
-  cat("Since p \\ge", alpha, ", we fail to reject $H_0$.\n")
-  cat("The observed KS statistic is consistent with the permutation distribution under exchangeability; ")
-  cat("there is insufficient statistical evidence of a distributional difference between development groups.\n")
-}
+perm_test_conclusion(p_value, alpha)
 ```
 
 # Generative AI Usage Statement

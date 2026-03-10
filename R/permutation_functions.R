@@ -156,6 +156,18 @@ perm_test_wrapper_ks <- function(df, outcome_col, group_col,
 }
 
 
+perm_test_conclusion <- function(p_val, alpha) {
+  if (p_val < alpha) {
+    cat("Since ",p_val,"(p-value) < ", alpha,"(alpha), we reject H0.\n")
+    cat("The observed KS statistic is unlikely under random label assignment, ")
+    cat("providing statistical evidence that the indicator distribution differs between development groups in 2023.\n")
+  } else {
+    cat("Since p \\ge", alpha, ", we fail to reject $H_0$.\n")
+    cat("The observed KS statistic is consistent with the permutation distribution under exchangeability; ")
+    cat("there is insufficient statistical evidence of a distributional difference between development groups.\n")
+  }
+}
+
 # AI usage:
 # Generative AI (ChatGPT) was used to clarify:
 # - roxygen documentation formatting

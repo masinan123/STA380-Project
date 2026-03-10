@@ -156,6 +156,32 @@ perm_test_wrapper_ks <- function(df, outcome_col, group_col,
 }
 
 
+#' Print a conclusion for a permutation test
+#'
+#' Prints an interpretation of the permutation test result based on the
+#' p-value and the significance level \eqn{\alpha}. The conclusion states
+#' whether the null hypothesis is rejected and provides a short
+#' distributional interpretation for the Kolmogorov--Smirnov (KS) statistic.
+#'
+#' @param p_val A numeric value giving the p-value from the permutation test.
+#' @param alpha A numeric value giving the significance level used for the test.
+#'
+#' @return No returned value. This function is called for its side effect of
+#' printing a conclusion to the console.
+#'
+#' @details
+#' If `p_val < alpha`, the function prints a conclusion that the null
+#' hypothesis is rejected. Otherwise, it prints a conclusion that there is
+#' insufficient evidence to reject the null hypothesis.
+#'
+#' This function is intended for reporting the result of a two-group
+#' permutation test using the KS statistic in the project analysis.
+#'
+#' @examples
+#' perm_test_conclusion(0.012, 0.05)
+#' perm_test_conclusion(0.18, 0.05)
+#'
+#' @export
 perm_test_conclusion <- function(p_val, alpha) {
   if (p_val < alpha) {
     cat("Since ",p_val,"(p-value) < ", alpha,"(alpha), we reject H0.\n")

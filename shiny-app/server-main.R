@@ -1,6 +1,6 @@
 local({
   
-  wpp <- readr::read_csv("../submissions/Data/wpp_country_indicators_2023.csv", show_col_types = FALSE)
+  data("wpp", package = "Sta380Project", envir = environment())
   
   indicator_label <- reactive({
     switch(input$indicator,

@@ -22,10 +22,6 @@ perm_stat_ks <- function(outcome, group) {
   g <- unique(group)
   if (length(g) != 2) stop("group must have exactly two levels. ")
   
-  # The problem with the current code version is that what you have done
-  # is perfectly divided these into two groups;
-  # if you are trying to reshuffle for a permutation test,
-  # you cannot have them neatly organized.
   x <- outcome[group == g[1]]
   y <- outcome[group == g[2]]
   
@@ -105,6 +101,10 @@ perm_test_two_group_ks <- function(df, B = 2000, seed = NULL, alternative = "two
   # make sure there are two groups
   if (length(g) != 2) stop("df$group must have exactly 2 groups")
   
+  n1 <- sum(group == g[1])
+  z <- outcome
+  n <- length(z)
+  
   perm_stats <- numeric(B)
   
   for (i in 1:B) {
@@ -153,12 +153,11 @@ perm_test_two_group_ks <- function(df, B = 2000, seed = NULL, alternative = "two
 #'
 #' @export
 perm_test_wrapper_ks <- function(df, outcome_col, group_col,
-                              B = 2000, seed = NULL, alternative = "two.sided") {
+                                 B = 2000, seed = NULL, alternative = "two.sided") {
   
   test_df <- perm_data_extract(df, {{ outcome_col }}, {{ group_col }})
   perm_test_two_group_ks(test_df, B = B, seed = seed, alternative = alternative)
 }
-
 
 
 #' Print a conclusion for a permutation test

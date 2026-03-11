@@ -109,10 +109,14 @@ perm_test_two_group_ks <- function(df, B = 2000, seed = NULL, alternative = "two
   
   for (i in 1:B) {
     k <- sample.int(n, size = n1)  # choose indices for permuted group 1
-    perm_group <- rep(g[2], n)
-    perm_group[k] <- g[1]
-    # calculate k-s statistic for the simulation
-    perm_stats[i] <- perm_stat_ks(z, perm_group)
+    
+    grp1 <- outcome[k]
+    grp2 <- outcome[-k]
+    
+    Fi <- ecdf(grp1)
+    Gi <- ecdf(grp2)
+    
+    perm_stats[i] <- max(abs(Fi(outcome) - Gi(outcome)))
   }
   
   p_value <- perm_p_value_mc(observed, perm_stats, alternative)

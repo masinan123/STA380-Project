@@ -5,3 +5,5 @@
 # ignore raw data files (downloaded locally)
 submissions/Data/Raw
 .DS_Store
+/doc/
+/Meta/

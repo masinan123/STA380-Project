@@ -30,7 +30,7 @@ ui <- page_sidebar(
       choices = list(
         "Birth rate" = "birth_rate",
         "Life expectancy" = "life_exp",
-        "Mortality rate" = "mortality_rate"
+        "Mortality rate" = "mortality"
       ),
       selected = "birth_rate"
     ),

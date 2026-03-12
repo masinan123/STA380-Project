@@ -2,6 +2,34 @@ local({
   
   data("wpp", package = "Sta380Project", envir = environment())
   
+  observeEvent(input$alpha, {
+    req(input$alpha) 
+    if (input$alpha < 0.001 || input$alpha > 0.20) {
+      showNotification(
+        "Error: Significance level must be between 0.001 and 0.20!",
+        type = "error",      
+        duration = NULL,     
+        id = "alpha_error"   
+      )
+    } else {
+      removeNotification("alpha_error") 
+    }
+  })
+  
+  observeEvent(input$B, {
+    req(input$B)
+    if (input$B < 100) {
+      showNotification(
+        "Error: Number of permutations must be at least 100!",
+        type = "error",
+        duration = NULL,
+        id = "B_error"
+      )
+    } else {
+      removeNotification("B_error")
+    }
+  })
+  
   indicator_label <- reactive({
     switch(input$indicator,
            "birth_rate" = "Birth rate",
@@ -22,6 +50,11 @@ local({
   
   perm_res <- reactive({
     req(cleaned_df())
+    
+    validate(
+      need(input$B >= 100, "Please enter at least 100 permutations.")
+    )
+    
     validate(
       need(nrow(cleaned_df()) > 1, "Not enough data after filtering."),
       need(length(unique(cleaned_df()$group)) == 2, "Exactly two groups are required.")
@@ -49,6 +82,10 @@ local({
   })
   
   output$decision_text <- renderText({
+    validate(
+      need(input$alpha >= 0.001 && input$alpha <= 0.20, "Error: Alpha value must be between 0.001 and 0.20")
+    )
+    
     if (perm_res()$p_value < input$alpha) {
       "Reject H0"
     } else {
@@ -86,6 +123,10 @@ local({
   })
   
   output$hypothesis_text <- renderText({
+    validate(
+      need(input$alpha >= 0.001 && input$alpha <= 0.20, "Error: Alpha must be between 0.001 and 0.20")
+    )
+    
     paste0(
       "Null hypothesis: the ", indicator_label(),
       " distribution is the same for More developed and Less developed countries.\n",

@@ -1,19 +1,45 @@
 ---
-title: "website_prototype_vignette"
+title: "Generative AI Usage Statement: Website Prototype"
 output: rmarkdown::html_vignette
+
 vignette: >
-  %\VignetteIndexEntry{website_prototype_vignette}
+  %\VignetteIndexEntry{Generative AI Usage Statement: Website Prototype}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
+bibliography: website_bibliography.bib
+nocite: "@*"
 ---
+
+<style>
+body {
+  font-size: 12pt;
+}
+</style>
 
 ```{r, include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
-  comment = "#>"
+  comment = "#>",
+  fig.width = 7,
+  fig.height = 6
 )
+
+library(Sta380Project)
+library(shiny)
+library(bslib)
 ```
 
-```{r setup}
-library(Sta380Project)
-```
+This vignette provides a record of how Generative AI was utilized during the development of Shiny application and the underlying package logic for the Website checkpoint.
+
+# Website Interface and Deployment
+
+For this checkpoint of the project, our main objective was to develop an interactive Shiny application to serve as a frontend for our existing permutation testing logic.
+
+*No Generative AI was used for the following tasks during this checkpoint:*
+
+-   **UI Development:** The layout and theme configuration in `app.R` and the library dependencies in `ui-controls.R` were written manually by the group members.
+-   **Server Logic:** The reactive programming within `server-main.R` was implemented without AI assistance.
+-   **Visual Integration:** The integration of the `plot_perm_dist()` and `plot_two_ECDFs()` functions into the Shiny output was handled manually.
+-   **Deployment:**
+
+# Bibliography

@@ -10,3 +10,4 @@ The repo is structured as:
   - `submissions/Data/` contains the cleaned, analysis-ready datasets used in the project.
   - `submissions/GroupFormation/` contains group informations.
   - `submissions/Proposal/` contains the project proposal files, including the rendered PDF, source files, and bibliography.
+- `Shiny website URL:` https://019cdf82-a43a-8105-8409-4763823e7a28.share.connect.posit.cloud/

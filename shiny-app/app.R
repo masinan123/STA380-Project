@@ -152,3 +152,12 @@ server <- function(input, output, session) {
 }
 
 shinyApp(ui = ui, server = server)
+
+# AI usage:
+# Generative AI (ChatGPT) was used to assist with:
+# - debugging file path issues when sourcing helper functions from the shiny-app directory
+# - structuring the Shiny app layout using page_sidebar() and value_box() components
+# - adjusting UI elements (e.g., font size and layout) to improve readability of output boxes
+#
+# The statistical analysis logic and interpretation of the permutation test
+# results were implemented and verified by the author.

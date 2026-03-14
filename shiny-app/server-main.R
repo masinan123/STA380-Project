@@ -139,3 +139,12 @@ local({
   })
   
 })
+
+# AI usage:
+# Generative AI (ChatGPT) was used to assist with:
+# - structuring reactive expressions for data preparation and permutation testing
+# - help with connecting existing package functions to Shiny outputs (renderPlot, renderText, renderTable)
+# - troubleshooting file path and data loading issues within the Shiny server environment
+#
+# All statistical methodology, including the permutation test implementation
+# and interpretation of the results, was designed and verified by the author.

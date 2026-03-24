@@ -59,12 +59,12 @@ ui <- page_sidebar(
       step = 0.001
     ),
     
-    selectInput(
-      inputId = "alternative",
-      label = "Alternative hypothesis",
-      choices = c("two.sided", "greater", "less"),
-      selected = "two.sided"
-    ),
+    # selectInput(
+    #   inputId = "alternative",
+    #   label = "Alternative hypothesis",
+    #   choices = c("two.sided", "greater", "less"),
+    #   selected = "two.sided"
+    # ),
     
     sliderInput(
       inputId = "bins",

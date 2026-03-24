@@ -64,7 +64,8 @@ local({
       df = cleaned_df(),
       B = input$B,
       seed = input$seed,
-      alternative = input$alternative
+      # alternative = input$alternative
+      alternative = "two.sided"
     )
   })
   

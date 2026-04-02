@@ -1,0 +1,25 @@
+Again, your group technically had an extension until April 1st, and that's why I am stating my feedback now.
+
+I noticed my feedback from last checkpoint was not incorporated...
+
+Grade:
+
+Fixing remaining issues (-10%)
+Noticed that the generative AI statement was not resolved.
+My comments from last checkpoint did not seem to be incorporated; for instance, the "alt" hypothesis and "one sided" options are still on the website.
+
+Completion (-5%)
+For the alternative hypothesis, things like "two.sided", "greater", and "less" shouldn't exist on the site.
+
+Aesthetics (-3%)
+Things such as the text output in the "permutation distribution" tab and the "cleaned data preview" could generally be improved.
+
+Additional features (-5%)
+I liked how you had the ECDF comparison, "cleaned data preview", and the 4 coloured tabs in the beginning. However, some of these additional features (aka the cleaned data preview) still seems incomplete. I also feel like it would have been nice to also talk a little bit more about the datasets.
+
+Group grade:
+> 57/80 * 6.4
+
+4.56/6.4
+
+Individual grades are private and will be released later when posted on Quercus. Bonus marks, if applicable, are reflected on Quercus instead of feedback here.
